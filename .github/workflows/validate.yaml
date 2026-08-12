@@ -1,0 +1,27 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 4 * * 1"
+
+jobs:
+  hassfest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      # hassfest has no versioned releases; @master is the documented usage.
+      - uses: home-assistant/actions/hassfest@master
+
+  hacs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      # hacs/action's version tags are unmaintained (latest is from 2022) and
+      # the action always runs the ghcr.io/hacs/action:main image, so @main is
+      # the only supported pin.
+      - uses: hacs/action@main
+        with:
+          category: integration

@@ -1,0 +1,66 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "WRM Water Consumption",
+        "description": "Sign in to your water utility's WRM portal. Your password is only used to sign in and is not stored — the integration keeps the login session (cookies) instead.",
+        "data": {
+          "email": "Email",
+          "password": "Password",
+          "base_url": "Portal URL",
+          "scan_interval_hours": "Polling interval (hours)"
+        }
+      },
+      "reauth_confirm": {
+        "title": "WRM session expired",
+        "description": "The saved session for {email} has expired. Enter your password to sign in again.",
+        "data": {
+          "password": "Password"
+        }
+      },
+      "reconfigure": {
+        "title": "Reconfigure WRM Water Consumption",
+        "description": "Update the portal URL or polling interval for {email}. Enter your password to re-authenticate and refresh the session.",
+        "data": {
+          "password": "Password",
+          "base_url": "Portal URL",
+          "scan_interval_hours": "Polling interval (hours)"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid email or password.",
+      "invalid_base_url": "Use an HTTPS URL on a WRM Systems subdomain (*.wrm-systems.fi).",
+      "cannot_connect": "Could not connect to the portal.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "This meter is already configured.",
+      "reauth_successful": "Successfully signed in again.",
+      "reconfigure_successful": "Reconfiguration saved."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "water_meter": {
+        "name": "Water meter reading"
+      }
+    }
+  },
+  "services": {
+    "import_history": {
+      "name": "Import reading history",
+      "description": "Backfill historical water meter readings into long-term statistics.",
+      "fields": {
+        "start": {
+          "name": "Start date",
+          "description": "First date to import (yyyy-MM-dd). Defaults to all history."
+        },
+        "end": {
+          "name": "End date",
+          "description": "Last date to import (yyyy-MM-dd). Defaults to all history."
+        }
+      }
+    }
+  }
+}

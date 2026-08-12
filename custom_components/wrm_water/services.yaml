@@ -1,0 +1,32 @@
+import_history:
+  name: Import reading history
+  description: >-
+    Backfill historical water meter readings into Home Assistant long-term
+    statistics for the Energy/Water dashboard. With no dates the full history
+    is imported.
+  fields:
+    start:
+      name: Start date
+      description: First date to import (yyyy-MM-dd). Defaults to all history.
+      required: false
+      example: "2023-10-24"
+      selector:
+        text:
+    end:
+      name: End date
+      description: Last date to import (yyyy-MM-dd). Defaults to all history.
+      required: false
+      example: "2026-06-28"
+      selector:
+        text:
+    reset:
+      name: Reset range first
+      description: >-
+        Delete the recorded statistics rows in the date range before
+        importing. Removes stale values at hours that have no meter reading
+        (a plain import only overwrites hours that do). Requires an
+        administrator account.
+      required: false
+      default: false
+      selector:
+        boolean:

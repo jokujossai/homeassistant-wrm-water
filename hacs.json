@@ -1,0 +1,6 @@
+{
+  "name": "WRM Water Consumption",
+  "country": "FI",
+  "homeassistant": "2024.4.0",
+  "render_readme": true
+}

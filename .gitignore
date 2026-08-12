@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Test / tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Local session / exported data (never commit cookies or personal data)
+cookies.json
+cookies.txt
+*.csv
+login-ok.html
+landing.html
+
+# OS
+.DS_Store

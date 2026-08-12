@@ -1,0 +1,9 @@
+# Test requirements. The plugin pins a matching homeassistant version and
+# provides the hass/aioclient_mock/recorder_mock pytest fixtures.
+# On Python 3.12 pip resolves plugin 0.13.205 / HA 2025.1; newer Pythons get
+# newer pairs.
+pytest-homeassistant-custom-component
+# Recorder dependencies for the statistics tests.
+sqlalchemy
+fnv-hash-fast
+psutil-home-assistant
